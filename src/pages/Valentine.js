@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FloatingCats from '../components/FloatingCats';
 import FloatingHearts from '../components/FloatingHearts';
 import Confetti from '../components/Confetti';
+import { memoryPhotos } from '../assets/memoryPhotos';
 
 const Valentine = () => {
   const [noClickCount, setNoClickCount] = useState(0);
@@ -34,6 +35,15 @@ const Valentine = () => {
         <FloatingCats />
         
         <div className="relative z-10 max-w-2xl w-full text-center space-y-8">
+          <div className="flex justify-center">
+            <div className="gif-sticker wiggle">
+              <img
+                src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif"
+                alt="Excited cat celebration"
+                loading="lazy"
+              />
+            </div>
+          </div>
           <div className="text-9xl bounce-in" data-testid="success-emoji">🎉</div>
           
           <h1 
@@ -57,6 +67,12 @@ const Valentine = () => {
           >
             Can't wait for our first Valentine's together! 🌸
           </p>
+          <p
+            className="text-lg md:text-xl text-gray-800"
+            style={{ fontFamily: 'Nunito, sans-serif' }}
+          >
+            Officially queued: snacks, soft hugs, and a tiny happy dance. 💃🕺
+          </p>
         </div>
       </div>
     );
@@ -68,6 +84,33 @@ const Valentine = () => {
       <FloatingHearts />
       
       <div className="relative z-10 max-w-2xl w-full text-center space-y-12">
+        <div className="absolute -top-6 left-2 sm:left-6">
+          <div className="polaroid-frame polaroid-tilt-left memory-float">
+            <img
+              src={memoryPhotos.polaroidTwo}
+              alt="Beach memory polaroid"
+              className="polaroid-image"
+            />
+          </div>
+        </div>
+        <div className="absolute -top-4 right-2 sm:right-6">
+          <div className="polaroid-frame polaroid-tilt-right memory-float">
+            <img
+              src={memoryPhotos.polaroidOne}
+              alt="Beach memory snapshot"
+              className="polaroid-image"
+            />
+          </div>
+        </div>
+        <div className="flex justify-center">
+          <div className="gif-sticker floaty-giggle">
+            <img
+              src="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif"
+              alt="Cute cat waving"
+              loading="lazy"
+            />
+          </div>
+        </div>
         {/* Cat GIF */}
         <div className="flex justify-center">
           <div className="text-9xl wiggle" data-testid="valentine-cat">
@@ -83,6 +126,12 @@ const Valentine = () => {
         >
           Will you be my Valentine? 💖
         </h1>
+        <p
+          className="text-lg md:text-xl text-gray-800"
+          style={{ fontFamily: 'Nunito, sans-serif' }}
+        >
+          I’ve got snacks, jokes, and a professional cat chaperone ready. 🐾
+        </p>
 
         {/* Please message after 3 NO clicks */}
         {noClickCount >= 3 && (
