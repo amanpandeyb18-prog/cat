@@ -83,7 +83,7 @@ const Valentine = () => {
       <FloatingCats />
       <FloatingHearts />
       
-      <div className="relative z-10 max-w-2xl w-full text-center space-y-12">
+      <div className="relative z-10 max-w-2xl w-full text-center space-y-12 pt-8 sm:pt-0">
         <div className="absolute -top-6 left-2 sm:left-6">
           <div className="polaroid-frame polaroid-tilt-left memory-float">
             <img
@@ -102,7 +102,7 @@ const Valentine = () => {
             />
           </div>
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center -mt-2 sm:mt-0">
           <div className="gif-sticker floaty-giggle">
             <img
               src="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif"

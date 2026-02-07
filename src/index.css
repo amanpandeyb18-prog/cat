@@ -205,6 +205,32 @@ code {
     animation: floaty-giggle 3.5s ease-in-out infinite;
 }
 
+@media (max-width: 640px) {
+    .gif-sticker {
+        width: 110px;
+        height: 110px;
+    }
+
+    .polaroid-frame {
+        width: 72px;
+        padding: 6px 6px 10px;
+    }
+
+    .polaroid-image {
+        height: 56px;
+        border-radius: 10px;
+    }
+
+    .memory-frame {
+        border-radius: 18px;
+        padding: 8px;
+    }
+
+    .memory-image {
+        border-radius: 14px;
+    }
+}
+
 .memory-frame {
     position: relative;
     border-radius: 20px;
