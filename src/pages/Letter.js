@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import FloatingHearts from '../components/FloatingHearts';
+import { memoryPhotos } from '../assets/memoryPhotos';
 
 const Letter = () => {
   const navigate = useNavigate();
@@ -10,6 +11,16 @@ const Letter = () => {
       <FloatingHearts />
       
       <div className="relative z-10 max-w-2xl w-full">
+        <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-[88%] sm:w-[85%] md:w-[80%] pointer-events-none">
+              <div className="memory-frame memory-fade-in memory-float memory-blur">
+            <img
+              src={memoryPhotos.letter}
+              alt="Soft beach memory"
+              className="memory-image"
+            />
+          </div>
+        </div>
+
         {/* Letter Card */}
         <div className="bg-[#FFF8DC] border-[5px] border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-8 md:p-12 relative">
           {/* Cat paw decorations */}
@@ -24,36 +35,19 @@ const Letter = () => {
             style={{ fontFamily: 'Dancing Script, cursive' }}
             data-testid="letter-content"
           >
-            <p className="text-2xl md:text-3xl font-semibold mb-6">Hey there! 💌</p>
-            
             <p>
-              We were classmates once, back in school… and then after 7th, you just vanished like a character written out of a series.
+              We were classmates once, then after 7th you vanished like a discontinued TV character.
+              Tried finding you for years, even texted a random number once… still not sure whose parent I accidentally greeted.
             </p>
-            
+
             <p>
-              After that we had zero contact. I even tried finding you on Instagram like a low-budget detective and failed miserably. Once after 10th I somehow got a number and texted, still not sure if it was yours or a confused parent's.
+              Finally found your Instagram, hit follow instantly, and spent way too long figuring out how to start a convo.
+              Then I saw you liking F1 posts and thought, “Nice. Conversation starter acquired.”
             </p>
-            
+
             <p>
-              Years later I finally found your profile and instantly hit follow like it was a limited-time offer.
-              I kept thinking how to start a conversation after so long… and then I saw you liking F1 posts and thought, "This is it. This is my moment."
-            </p>
-            
-            <p>
-              Saw your stories, you looked really pretty, not gonna lie.
-              And somehow… we actually started talking again.
-            </p>
-            
-            <p>
-              You're nonchalant, your humor is weirdly unique, and honestly, that's one of the best parts about you.
-            </p>
-            
-            <p className="font-semibold italic">
-              So yeah… it might be a little early to say this, but sometimes it's better not to delay.
-            </p>
-            
-            <p className="text-xl md:text-2xl font-bold text-center mt-8">
-              So… what do you say? 💖
+              We started talking again somehow, and I realized your nonchalant vibe and weirdly unique humor are actually… pretty great.
+              Yeah, it might be early to say this, but sometimes it’s better not to delay.
             </p>
           </div>
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FloatingCats from '../components/FloatingCats';
 import FloatingHearts from '../components/FloatingHearts';
 import Confetti from '../components/Confetti';
+import { memoryPhotos } from '../assets/memoryPhotos';
 
 const Valentine = () => {
   const [noClickCount, setNoClickCount] = useState(0);
@@ -68,6 +69,24 @@ const Valentine = () => {
       <FloatingHearts />
       
       <div className="relative z-10 max-w-2xl w-full text-center space-y-12">
+        <div className="absolute -top-6 left-2 sm:left-6">
+              <div className="polaroid-frame polaroid-tilt-left memory-float">
+            <img
+              src={memoryPhotos.polaroidTwo}
+              alt="Beach memory polaroid"
+              className="polaroid-image"
+            />
+          </div>
+        </div>
+        <div className="absolute -top-4 right-2 sm:right-6">
+          <div className="polaroid-frame polaroid-tilt-right memory-float">
+            <img
+              src={memoryPhotos.polaroidOne}
+              alt="Beach memory snapshot"
+              className="polaroid-image"
+            />
+          </div>
+        </div>
         {/* Cat GIF */}
         <div className="flex justify-center">
           <div className="text-9xl wiggle" data-testid="valentine-cat">
