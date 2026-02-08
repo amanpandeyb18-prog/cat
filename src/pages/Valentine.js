@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FloatingCats from "../components/FloatingCats";
 import FloatingHearts from "../components/FloatingHearts";
 import Confetti from "../components/Confetti";
 import { memoryPhotos } from "../assets/memoryPhotos";
+import { sendWebhookEvent } from "../utils/webhook";
 
 const Valentine = () => {
   const [noClickCount, setNoClickCount] = useState(0);
@@ -11,27 +12,15 @@ const Valentine = () => {
 
   const yesButtonScale = 1 + noClickCount * 0.15;
 
+  useEffect(() => {
+    sendWebhookEvent("page_visit", { page: "valentine", step: 3 });
+  }, []);
+
   const handleNoClick = (e) => {
     e.preventDefault();
     setNoClickCount((prev) => prev + 1);
 
-    const webhookUrl =
-      "https://webhook.site/5153a182-f8f5-49d9-a676-5563965fa962";
-    const payload = JSON.stringify({
-      event: "valentine_no",
-      ts: Date.now(),
-      ua: navigator.userAgent,
-    });
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon(webhookUrl, payload);
-    } else {
-      fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: payload,
-        keepalive: true,
-      }).catch(() => {});
-    }
+    sendWebhookEvent("valentine_no");
 
     const maxX = window.innerWidth - 200;
     const maxY = window.innerHeight - 100;
@@ -43,23 +32,7 @@ const Valentine = () => {
 
   const handleYesClick = () => {
     setYesClicked(true);
-    const webhookUrl =
-      "https://webhook.site/5153a182-f8f5-49d9-a676-5563965fa962";
-    const payload = JSON.stringify({
-      event: "valentine_yes",
-      ts: Date.now(),
-      ua: navigator.userAgent,
-    });
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon(webhookUrl, payload);
-    } else {
-      fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: payload,
-        keepalive: true,
-      }).catch(() => {});
-    }
+    sendWebhookEvent("valentine_yes");
   };
 
   if (yesClicked) {

@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FloatingHearts from '../components/FloatingHearts';
 import { memoryPhotos } from '../assets/memoryPhotos';
+import { sendWebhookEvent } from '../utils/webhook';
 
 const Letter = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    sendWebhookEvent('page_visit', { page: 'letter', step: 2 });
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-200 via-pink-200 to-yellow-100 flex items-center justify-center p-4 relative overflow-hidden">
